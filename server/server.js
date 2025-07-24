@@ -23,6 +23,8 @@ const getGeminiPrompt = (resumeText) => {
     return `
     You are an expert technical recruiter and career coach. Analyze the following resume text and provide a detailed analysis in a structured JSON format.
 
+    Be highly critical and strict in your evaluation. Do not give high ratings to weak resumes. Adjust expectations fairly based on the candidate’s experience level—fresher, mid-level, or senior—but maintain a high bar for quality, clarity, relevance, and impact.
+
     Your response MUST be a single, valid JSON object and nothing else. Do not include any text before or after the JSON object.
 
     JSON Structure:

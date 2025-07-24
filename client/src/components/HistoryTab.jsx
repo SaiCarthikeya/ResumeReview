@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {HashLoader} from 'react-spinners'
 import axios from 'axios';
 import DetailsModal from './DetailsModal';
 import { EyeIcon } from '@heroicons/react/24/solid';
@@ -26,9 +27,10 @@ const HistoryTab = () => {
   }, []);
 
   if (loading) return (
-    <div className="flex justify-center items-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+    <div className="flex text-center justify-center">
+      <HashLoader />
     </div>
+
   );
   if (error) return <p className="text-red-500 font-bold text-center">{error}</p>;
 

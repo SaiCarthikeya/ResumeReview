@@ -1,8 +1,6 @@
 import React from 'react';
 import { DocumentTextIcon, LightBulbIcon, WrenchScrewdriverIcon, UserCircleIcon, ChatBubbleBottomCenterTextIcon, AcademicCapIcon, BriefcaseIcon, SparklesIcon, ChevronDoubleUpIcon } from '@heroicons/react/24/outline';
 
-
-// Reusable Pill component with color variants
 const Pill = ({ text, color = 'blue' }) => {
   const colorClasses = {
     blue: 'bg-blue-100 text-blue-800',
@@ -12,7 +10,6 @@ const Pill = ({ text, color = 'blue' }) => {
   return <span className={`inline-block text-xs font-medium mr-2 mb-2 px-3 py-1 rounded-full ${colorClasses[color]}`}>{text}</span>;
 };
 
-// Reusable Card component
 const Card = ({ title, icon, children }) => (
     <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
         <div className="flex items-center mb-4">
@@ -28,7 +25,6 @@ const AnalysisDisplay = ({ data }) => {
 
   const { personalDetails, content, skills, aiFeedback } = data;
 
-  // Function to determine rating color
   const getRatingColor = (rating) => {
     if (rating >= 8) return 'text-green-500';
     if (rating >= 5) return 'text-amber-500';
@@ -37,7 +33,6 @@ const AnalysisDisplay = ({ data }) => {
 
   return (
     <div className="space-y-8">
-      {/* AI Feedback Card */}
       <div className="bg-gradient-to-br from-indigo-700 to-blue-600 text-white p-8 rounded-xl shadow-2xl">
         <div className="flex items-center mb-4">
           <SparklesIcon className="h-8 w-8 mr-3"/>

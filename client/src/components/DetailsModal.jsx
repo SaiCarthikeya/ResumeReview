@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HashLoader } from 'react-spinners';
 import axios from 'axios';
 import AnalysisDisplay from './AnalysisDisplay';
 import { XMarkIcon } from '@heroicons/react/24/solid';
@@ -43,7 +44,7 @@ const DetailsModal = ({ resumeId, onClose }) => {
         <div className="p-6 overflow-y-auto">
             {loading ? (
                 <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+                    <HashLoader />
                 </div>
             ) : (
                 <AnalysisDisplay data={details} />
