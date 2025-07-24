@@ -47,7 +47,7 @@ function App() {
           {activeTab === 'history' && <HistoryTab />}
         </main>
         <footer className="text-center mt-8 text-sm text-gray-400">
-            Powered by Gemini AI at {new Date().getFullYear()}
+            Powered by Gemini 1.5 Flash
         </footer>
       </div>
     </div>

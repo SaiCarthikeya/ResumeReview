@@ -30,12 +30,14 @@ const HistoryTab = () => {
       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
     </div>
   );
-  if (error) return <p className="text-red-500 text-center">{error}</p>;
+  if (error) return <p className="text-red-500 font-bold text-center">{error}</p>;
 
   return (
-    <div className="overflow-x-auto">
+    <div>
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Analysis History</h2>
-      <div className="shadow-md rounded-lg overflow-hidden border border-gray-200">
+
+      {/* --- Desktop Table View --- */}
+      <div className="hidden md:block shadow-md rounded-lg overflow-hidden border border-gray-200">
         <table className="min-w-full bg-white">
           <thead className="bg-gray-100">
             <tr>
@@ -62,6 +64,30 @@ const HistoryTab = () => {
           </tbody>
         </table>
       </div>
+
+      {/* --- Mobile Card View --- */}
+      <div className="block md:hidden space-y-4">
+        {history.map((item) => (
+          <div key={item.id} className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-start">
+                <div className="flex-grow min-w-0">
+                    <p className="font-bold text-lg text-gray-800 break-words">{item.name || 'N/A'}</p>
+                    <p className="font-mono text-xs text-gray-500 break-all">{item.filename}</p>
+                </div>
+                <button onClick={() => setSelectedResumeId(item.id)} className="ml-4 flex-shrink-0 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold inline-flex items-center">
+                    <EyeIcon className="h-4 w-4 mr-1"/>
+                    Details
+                </button>
+            </div>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600">
+                    <span className="font-semibold">Analyzed on:</span> {new Date(item.created_at).toLocaleDateString()}
+                </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {selectedResumeId && (
         <DetailsModal resumeId={selectedResumeId} onClose={() => setSelectedResumeId(null)} />
       )}
